@@ -1,0 +1,60 @@
+/* body {
+  padding: 50px;
+  width: 800px;
+} */
+
+.vl-box {
+  clear: both;
+  font-size: 14px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: 1px solid #ddd;
+  border-top: 6px solid #ddd;
+  border-radius: 6px 6px 5px 5px;
+  padding: 28px 20px 20px 18px;
+}
+
+.vl-box__head {
+  margin: 0;
+}
+
+.vl-box__title {
+  display: inline-block;
+  text-decoration: none;
+  color: #197ade;
+  margin-bottom: 20px;
+}
+
+/***** Job *****/
+.vl-job-list {
+  column-count: 2;
+}
+
+@media screen and (max-width: 600px) {
+  .vl-job-list {
+    column-count: 1;
+  }
+}
+
+.vl-job-item {
+  margin:0;
+  margin-bottom: 10px;
+}
+.vl-job-item__title {
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vl-job-item__desc {
+  color: #d6270d;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
