@@ -1,9 +1,10 @@
 {
   "name": "nldbox",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "dev": "webpack --watch",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,6 +23,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
+    "@types/node-fetch": "^2.5.7",
     "node-fetch": "^2.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

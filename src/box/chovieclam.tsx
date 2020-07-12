@@ -1,59 +1,5 @@
 import * as React from 'react';
-// import './App.css';
-
-const sampleData = [
-  {
-    title: 'CÔNG TY TNHH CƠ KHÍ HIỆP PHƯỚC',
-    link: '/',
-    desc: 'Hồ Chí Minh | 22-06-2020 | Tìm việc » Kế toán / Kiểm toán'
-  },
-  {
-    title: 'CÔNG TY TNHH ĐẦU TƯ CÔNG NGHỆ NGUYỄN PHAN',
-    link: '/',
-    desc: 'Hồ Chí Minh | 22-06-2020 | Tìm việc » Kế toán / Kiểm toán'
-  },
-  {
-    title: 'TUYỂN SINH DU HỌC NGHỀ ĐIỀU DƯỠNG TẠI ĐỨC',
-    link: '/',
-    desc: 'Hồ Chí Minh | 22-06-2020 | Tìm việc » Kế toán / Kiểm toán'
-  },
-  {
-    title: 'CÔNG TY TNHH ĐẦU TƯ CÔNG NGHỆ',
-    link: '/',
-    desc: 'Hồ Chí Minh | 22-06-2020 | Tìm việc » Kế toán / Kiểm toán'
-  },
-  {
-    title: 'CÔNG TY TNHH ĐẦU TƯ CÔNG NGHỆ PHAN',
-    link: '/',
-    desc: 'Hồ Chí Minh | 22-06-2020 | Tìm việc » Kế toán / Kiểm toán'
-  },
-  {
-    title: 'CÔNG TY TNHH CƠ KHÍ HIỆP PHƯỚC',
-    link: '/',
-    desc: 'Hồ Chí Minh | 22-06-2020 | Tìm việc » Kế toán / Kiểm toán'
-  },
-  {
-    title: 'CÔNG TY TNHH ĐẦU TƯ CÔNG NGHỆ NGUYỄN PHAN',
-    link: '/',
-    desc: 'Hồ Chí Minh | 22-06-2020 | Tìm việc » Kế toán / Kiểm toán'
-  },
-  {
-    title: 'TUYỂN SINH DU HỌC NGHỀ ĐIỀU DƯỠNG TẠI ĐỨC',
-    link: '/',
-    desc: 'Hồ Chí Minh | 22-06-2020 | Tìm việc » Kế toán / Kiểm toán'
-  },
-  {
-    title: 'CÔNG TY TNHH ĐẦU TƯ CÔNG NGHỆ',
-    link: '/',
-    desc: 'Hồ Chí Minh | 22-06-2020 | Tìm việc » Kế toán / Kiểm toán'
-  },
-  {
-    title: 'CÔNG TY TNHH ĐẦU TƯ CÔNG NGHỆ PHAN',
-    link: '/',
-    desc: 'Hồ Chí Minh | 22-06-2020 | Tìm việc » Kế toán / Kiểm toán'
-  }
-];
-
+import fetch from 'node-fetch';
 interface VieclamCardProps {
   title: string;
   desc: string;
@@ -65,12 +11,12 @@ function VieclamCard({ title, desc, link }: VieclamCardProps) {
     <div className="vl-job-item__head">
       <a className="vl-job-item__title" href={link}>{title}</a>
     </div>
-    <div className="vl-job-item__desc">{desc}</div>
+    <div className="vl-job-item__desc" dangerouslySetInnerHTML={{ __html: desc }}></div>
   </div>)
 }
 
 export interface ChovieclamProps {
-
+  api: string;
 }
 export interface ChovieclamState {
   list: object[];
@@ -85,9 +31,14 @@ export class Chovieclam extends React.Component<ChovieclamProps, ChovieclamState
   }
 
   componentDidMount() {
-    this.setState({ list: sampleData })
-  }
-  componentDidUpdate() {
+    fetch(this.props.api)
+      .then(res => {
+        if (res.status == 200) {
+          return res.json();
+        }
+        return [];
+      })
+      .then(list => this.setState({ list }))
   }
 
   render() {

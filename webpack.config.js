@@ -1,5 +1,4 @@
 module.exports = {
-  watch: true,
   mode: "production",
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"],
