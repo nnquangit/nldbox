@@ -19,6 +19,7 @@
   "scripts": {
     "dev": "webpack --watch",
     "build": "webpack --mode=production",
+    "eject": "react-scripts eject",
     "test": "react-scripts test"
   },
   "eslintConfig": {
