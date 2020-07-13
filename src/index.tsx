@@ -8,9 +8,11 @@ export interface cfChovieclam {
   api: string,
 }
 
-declare var NldBox: any
+declare var NldBox: any;
 
-NldBox = NldBox || {};
+if (typeof NldBox === 'undefined') {
+  NldBox = {};
+}
 
 var cf_chovieclam: cfChovieclam = NldBox.chovieclam || {
   id: 'boxChovieclam',
