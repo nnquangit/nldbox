@@ -9,17 +9,18 @@ export interface cfChovieclam {
 }
 
 declare var NldBox: any;
-
-if (typeof NldBox === 'undefined') {
-  NldBox = {};
-}
-
-var cf_chovieclam: cfChovieclam = NldBox.chovieclam || {
-  id: 'boxChovieclam',
-  api: 'http://vieclam.nld.com.vn/export/json-chovieclam.php'
+var cfNldbox = {
+  chovieclam: {
+    id: 'boxChovieclam',
+    api: 'http://vieclam.nld.com.vn/export/json-chovieclam.php'
+  }
 };
 
-const chovieclam = document.getElementById(cf_chovieclam.id)
+if (typeof NldBox !== 'undefined') {
+  Object.assign(cfNldbox, NldBox);
+}
+
+const chovieclam = document.getElementById(cfNldbox.chovieclam.id)
 if (chovieclam) {
-  ReactDOM.render(<Chovieclam api={cf_chovieclam.api} />, chovieclam);
+  ReactDOM.render(<Chovieclam api={cfNldbox.chovieclam.api} />, chovieclam);
 }
