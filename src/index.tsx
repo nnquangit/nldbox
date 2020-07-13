@@ -3,16 +3,14 @@ import * as ReactDOM from "react-dom";
 import './index.css';
 import { Chovieclam } from "./box/chovieclam";
 
-interface cfChovieclam {
+export interface cfChovieclam {
   id: string,
   api: string,
 }
 
 declare var NldBox: any
 
-if (!NldBox) {
-  var NldBox: any = {};
-}
+NldBox = NldBox || {};
 
 var cf_chovieclam: cfChovieclam = NldBox.chovieclam || {
   id: 'boxChovieclam',

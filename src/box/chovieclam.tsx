@@ -1,12 +1,13 @@
 import * as React from 'react';
 import fetch from 'node-fetch';
-interface VieclamCardProps {
+
+export interface VieclamCardProps {
   title: string;
   desc: string;
   link: string;
 }
 
-function VieclamCard({ title, desc, link }: VieclamCardProps) {
+export function VieclamCard({ title, desc, link }: VieclamCardProps) {
   return (<div className="vl-job-item">
     <div className="vl-job-item__head">
       <a className="vl-job-item__title" href={link}>{title}</a>
@@ -19,7 +20,7 @@ export interface ChovieclamProps {
   api: string;
 }
 export interface ChovieclamState {
-  list: object[];
+  list: VieclamCardProps[];
 }
 
 export class Chovieclam extends React.Component<ChovieclamProps, ChovieclamState> {
@@ -33,7 +34,7 @@ export class Chovieclam extends React.Component<ChovieclamProps, ChovieclamState
   componentDidMount() {
     fetch(this.props.api)
       .then(res => {
-        if (res.status == 200) {
+        if (res.status === 200) {
           return res.json();
         }
         return [];

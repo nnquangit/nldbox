@@ -1,5 +1,11 @@
+const TerserPlugin = require('terser-webpack-plugin');
+
 module.exports = {
-  mode: "production",
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+    // minimizer: [new UglifyJsPlugin()],
+  },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
