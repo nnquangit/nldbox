@@ -18,3 +18,4 @@ Báo Người Lao Động Inject Sitebox
   </body>
 </html>
 ```
+![Example](assets/example.png)
