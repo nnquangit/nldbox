@@ -1,10 +1,12 @@
-const TerserPlugin = require('terser-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
+const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
   optimization: {
     minimize: true,
     minimizer: [new TerserPlugin()],
-    // minimizer: [new UglifyJsPlugin()],
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"],
@@ -26,4 +28,12 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new CompressionPlugin({
+      algorithm: "gzip",
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: process.env.NODE_ENV !== "production",
+    }),
+  ],
 };

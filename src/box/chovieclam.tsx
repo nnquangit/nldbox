@@ -18,6 +18,8 @@ export function VieclamCard({ title, desc, link }: VieclamCardProps) {
 
 export interface ChovieclamProps {
   api: string;
+  title: string;
+  link: string;
 }
 export interface ChovieclamState {
   list: VieclamCardProps[];
@@ -43,12 +45,18 @@ export class Chovieclam extends React.Component<ChovieclamProps, ChovieclamState
   }
 
   render() {
-    const { list } = this.state;
+    const list = this.state.list.splice(0, 8);
+    const { title, link } = this.props;
+    
+    if (list.length <= 0) {
+      return null;
+    }
+
     return (
       <div className="vl-box">
         <div className="vl-box-header">
           <h2 className="vl-box__head">
-            <a href="/thoi-su.htm" className="vl-box__title">Chợ việc làm</a>
+            <a href={link} className="vl-box__title">{title}</a>
           </h2>
         </div>
         <div className="vl-job-list">{list.map(VieclamCard)}</div>

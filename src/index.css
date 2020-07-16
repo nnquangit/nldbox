@@ -15,13 +15,14 @@
 
 .vl-box__head {
   margin: 0;
+  margin-bottom: 25px;
 }
 
 .vl-box__title {
   display: inline-block;
   text-decoration: none;
   color: #197ade;
-  margin-bottom: 20px;
+  font: normal 19px/normal Roboto-Bold;
 }
 
 /***** Job *****/
@@ -36,6 +37,7 @@
 }
 
 .vl-job-item {
+  line-height: 1.4;
   margin:0;
   margin-bottom: 10px;
 }

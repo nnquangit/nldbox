@@ -22,5 +22,9 @@ if (typeof NldBox !== 'undefined') {
 
 const chovieclam = document.getElementById(cfNldbox.chovieclam.id)
 if (chovieclam) {
-  ReactDOM.render(<Chovieclam api={cfNldbox.chovieclam.api} />, chovieclam);
+  ReactDOM.render(<Chovieclam
+    title="CHỢ VIỆC LÀM"
+    link="http://vieclam.nld.com.vn/cho-viec-lam/l"
+    api={cfNldbox.chovieclam.api}
+  />, chovieclam);
 }
